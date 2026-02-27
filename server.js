@@ -21,10 +21,10 @@ app.post('/api/send-telegram', async (req, res) => {
   const text = `📝 Новая анкета:\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n📌 Должность: ${position}\n🗒️ Инфо: ${message}`;
   
   try {
-    const response = await fetch(`https://api.telegram.org/bot${process.env.TOKEN}/sendMessage`, {
+    const response = await fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_TOKEN}/sendMessage`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: process.env.CHAT_ID, text })
+      body: JSON.stringify({ chat_id: process.env.TELEGRAM_CHAT_ID, text })
     });
     
     const data = await response.json();
@@ -35,4 +35,4 @@ app.post('/api/send-telegram', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`✅ Сервер запущен на http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`✅ Сервер запущен на http://${BASE_URL}`));
