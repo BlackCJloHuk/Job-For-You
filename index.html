@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JobForYou</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="reponsive.css">
+</head>
+
+<body>
+  <header>
+    <h1 class="head-coment">Добро пожаловать на сайт Job for You.</h1>
+    <p>Рекрутинговое агенство премиум-класса для вашего дома.</p>
+  </header>
+
+  <main>
+    <div class="header-menu">
+      <div class="div-button">
+        <button onclick="toggleMenu('candidate')" id="btnCandidate">
+           👤 Я кандидат <span class="arrow" id="arrowCandidate">▼</span>
+        </button>
+        <button onclick="toggleMenu('employer')" id="btnEmployer">
+          🏢 Я работодатель <span class="arrow" id="arrowEmployer">▼</span>
+        </button>
+      </div>
+
+      <!-- Кандидат -->
+      <div id="candidateMenu" class="menu hidden">
+        <div class="menu-block">
+          <ul>
+            <li onclick="toggleSubmenu()" id="vacancyToggle">🔎 Поиск вакансий</li>
+            <li onclick="window.location.href='resume.html'">📝 Создать резюме</li>
+          </ul>
+
+          <div class="job-submenu" id="jobSubmenu">
+            <ul>
+              <li>🚗 Водитель</li>
+              <li>🛡️ Охрана</li>
+              <li>💻 Техподдержка</li>
+              <li>👨‍🍳 Повар</li>
+              <li>👶 Няня</li>
+              <li>📚 Гувернёр</li>
+              <li>🧤 Батлер</li>
+              <li>🧑‍💼 Управляющий</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Работодатель -->
+      <div id="employerMenu" class="menu hidden">
+        <div class="menu-block">
+          <ul>
+            <li onclick="toggleEmployerSubmenu()" id="employerToggle">🔎 Найти сотрудников</li>
+            <li onclick="window.location.href='vacancy.html'">📢 Разместить вакансию</li>
+          </ul>
+
+          <div class="job-submenu" id="employerSubmenu">
+            <ul>
+              <li>🚗 Водитель</li>
+              <li>🛡️ Охрана</li>
+              <li>💻 Техподдержка</li>
+              <li>👨‍🍳 Повар</li>
+              <li>👶 Няня</li>
+              <li>📚 Гувернёр</li>
+              <li>🧤 Батлер</li>
+              <li>🧑‍💼 Управляющий</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <section id="why-us">
+    <h2>Почему нас выбирают</h2>
+    <div class="why-us-items">
+      <div>✅ Проверенные кандидаты</div>
+      <div>🤝 Индивидуальный подход</div>
+      <div>🔒 Конфиденциальность</div>
+    </div>
+  </section>
+  <section class="comments">
+  <h2>Отзывы о нас</h2>
+  <div class="comment-block">
+    <p class="comment">“Нашли гувернантку за 2 дня! Профессионально.”</p>
+    <p class="author">— Анна, Женева</p>
+  </div>
+  <div class="comment-block">
+    <p class="comment">“Устроилась няней в хорошую семью. Спасибо!”</p>
+    <p class="author">— Мария, Лозанна</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-block">
+      <h3>Контакты</h3>
+      <p>📞 +41 77 905 8578</p>
+      <p>✉️ jobforyou.eu@gmail.com</p>
+    </div>
+    <div class="footer-block">
+      <h3>Мы в соцсетях</h3>
+      <p>🌐 Instagram | Telegram | Facebook</p>
+    </div>
+  </div>
+  <div>
+    <p class="footer-copy">© Job for You, 2025</p>
+  </div>
+</footer>
+
+  <script>
+    function toggleMenu(type) {
+      const candidate = document.getElementById("candidateMenu");
+      const employer = document.getElementById("employerMenu");
+      const arrowCandidate = document.getElementById("arrowCandidate");
+      const arrowEmployer = document.getElementById("arrowEmployer");
+
+      if (type === "candidate") {
+        const isOpen = candidate.classList.contains("active");
+        candidate.classList.toggle("active");
+        employer.classList.remove("active");
+        document.getElementById("jobSubmenu").classList.remove("active");
+        arrowCandidate.style.transform = isOpen ? "rotate(0deg)" : "rotate(180deg)";
+        arrowEmployer.style.transform = "rotate(0deg)";
+      }
+
+      if (type === "employer") {
+        const isOpen = employer.classList.contains("active");
+        employer.classList.toggle("active");
+        candidate.classList.remove("active");
+        document.getElementById("employerSubmenu").classList.remove("active");
+        arrowEmployer.style.transform = isOpen ? "rotate(0deg)" : "rotate(180deg)";
+        arrowCandidate.style.transform = "rotate(0deg)";
+      }
+    }
+
+    function toggleSubmenu() {
+      const submenu = document.getElementById("jobSubmenu");
+      submenu.classList.toggle("active");
+    }
+
+    function toggleEmployerSubmenu() {
+      const submenu = document.getElementById("employerSubmenu");
+      submenu.classList.toggle("active");
+    }
+  </script>
+</body>
+
+</html>
