@@ -1,6 +1,6 @@
 exports.handler = async (event) => {
-  if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, body: 'Method Not Allowed' };
+  if (event.httpMethod !== "POST") {
+    return { statusCode: 405, body: "Method Not Allowed" };
   }
 
   try {
@@ -12,16 +12,16 @@ exports.handler = async (event) => {
 📌 Должность: ${position}
 🗒️ Инфо: ${message}`;
 
-    // Use built-in fetch
+    // Built-in fetch in Node 18+
     const response = await fetch(
       `https://api.telegram.org/bot${process.env.TELEGRAM_TOKEN}/sendMessage`,
       {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           chat_id: process.env.TELEGRAM_CHAT_ID,
-          text
-        })
+          text,
+        }),
       }
     );
 
@@ -30,18 +30,18 @@ exports.handler = async (event) => {
     if (!response.ok) {
       return {
         statusCode: 500,
-        body: JSON.stringify({ error: data })
+        body: JSON.stringify({ error: data }),
       };
     }
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ ok: true, data })
+      body: JSON.stringify({ ok: true, data }),
     };
   } catch (err) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: err.message })
+      body: JSON.stringify({ error: err.message }),
     };
   }
 };
