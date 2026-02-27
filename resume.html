@@ -61,7 +61,7 @@
       const message = document.getElementById("message").value.trim();
       const status = document.getElementById("form-status");
 
-      fetch("/.netlify/functions/send-telegram", {
+      fetch("/netlify/functions/send-telegram", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, phone, position, message }),
