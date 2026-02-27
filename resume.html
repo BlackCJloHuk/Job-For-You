@@ -60,11 +60,12 @@
       const position = document.getElementById("position").value;
       const message = document.getElementById("message").value.trim();
       const status = document.getElementById("form-status");
-        fetch("/api/send-telegram", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name, phone, position, message }),
-        })
+
+      fetch("/.netlify/functions/send-telegram", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, phone, position, message }),
+      })
       .then((res) => {
         if (res.ok) {
           status.textContent = "✅ Отправлено!";
