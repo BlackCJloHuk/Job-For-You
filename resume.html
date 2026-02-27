@@ -60,7 +60,7 @@
       const position = document.getElementById("position").value;
       const message = document.getElementById("message").value.trim();
       const status = document.getElementById("form-status");
-        fetch("http://localhost:3000/api/send-telegram", {
+        fetch("/api/send-telegram", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ name, phone, position, message }),
