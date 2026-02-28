@@ -44,6 +44,9 @@ button {
   font-size: 16px;
   cursor: pointer;
 }
+.div-button button {
+  background-color: rgba(213, 238, 50, 0.28);
+}
 
 .arrow {
   display: block;
