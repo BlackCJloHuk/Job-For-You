@@ -102,63 +102,7 @@
     </div>
     <p class="footer-copy">© 2025 JobForYou. Все права защищены.</p>
   </footer>
-<script>
-document.getElementById("telegramForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  const name = document.getElementById("name").value.trim();
-  const phone = document.getElementById("phone").value.trim();
-  const position = document.getElementById("position").value;
-  const message = document.getElementById("message").value.trim();
-  const status = document.getElementById("form-status");
-
-  // Определяем тип пользователя по текущей странице
-  let userType = "";
-  if (window.location.pathname.includes("resume.html")) {
-    userType = "applicant"; // соискатель
-  } else if (window.location.pathname.includes("company_resume.html")) {
-    userType = "employer"; // работодатель
-  }
-
-  // Формируем сообщение для Telegram
-  let telegramMessage = "";
-  if (userType === "employer") {
-    telegramMessage = `👔 Работодатель
-    Имя: ${name}
-    Телефон: ${phone}
-    Позиция: ${position}
-    Сообщение: ${message}`;
-  } else {
-    telegramMessage = `🧑 Соискатель
-    Имя: ${name}
-    Телефон: ${phone}
-    Позиция: ${position}
-    Сообщение: ${message}`;
-  }
-
-  // Отправка на Netlify Function
-  fetch("/.netlify/functions/send-telegram", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ telegramMessage }),
-  })
-  .then((res) => {
-    if (res.ok) {
-      status.textContent = "✅ Отправлено!";
-      status.style.color = "green";
-      document.getElementById("telegramForm").reset();
-    } else {
-      status.textContent = "❌ Ошибка отправки";
-      status.style.color = "red";
-    }
-  })
-  .catch(() => {
-    status.textContent = "❌ Ошибка соединения";
-    status.style.color = "red";
-  });
-});
-</script>
-  <!-- <script>
+  <script>
     document.getElementById("telegramForm").addEventListener("submit", function (e) {
       e.preventDefault();
 
@@ -188,6 +132,6 @@ document.getElementById("telegramForm").addEventListener("submit", function (e) 
         status.style.color = "red";
       });
     });
-  </script> -->
+  </script>
 </body>
 </html>
