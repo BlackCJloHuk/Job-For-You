@@ -1,9 +1,6 @@
-html, body {
+body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
-}
-body {
   font-family: Arial, sans-serif;
   background: linear-gradient(90deg, #573480c7, #779bfe);
 }
