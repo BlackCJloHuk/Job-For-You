@@ -50,58 +50,7 @@
     </div>
     <p class="footer-copy">© 2025 JobForYou. Все права защищены.</p>
   </footer>
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Анкета кандидата</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="work_survey.css" />
-</head>
-<body>
-  <header class="header">
-    <h1 class="head-coment">JobForYou</h1>
-    <p>Рекрутинговое агентство премиум-класса для вашего дома</p>
-  </header>
 
-  <main>
-    <section class="application-form">
-      <h2>Анкета кандидата</h2>
-      <form id="telegramForm">
-        <input type="text" id="name" placeholder="Имя" required />
-        <input type="tel" id="phone" placeholder="Телефон" required />
-        <select id="position" required>
-          <option disabled selected>Выберите позицию</option>
-          <option>Водитель</option>
-          <option>Охрана</option>
-          <option>Техподдержка</option>
-          <option>Повар</option>
-          <option>Няня</option>
-          <option>Гувернёр</option>
-          <option>Батлер</option>
-          <option>Управляющий</option>
-        </select>
-        <textarea id="message" placeholder="Дополнительная информация"></textarea>
-        <button type="submit">Отправить</button>
-        <p id="form-status" class="form-status"></p>
-      </form>
-      <a class='back-link' href='/'>← Назад на главную</a>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-block">
-        <p>📧 jobforyou.eu@gmail.com</p>
-      </div>
-      <div class="footer-block">
-        <h3>📣 Мы в соцсетях</h3>
-        <p>📱 Instagram | Telegram | Facebook</p>
-      </div>
-    </div>
-    <p class="footer-copy">© 2025 JobForYou. Все права защищены.</p>
-  </footer>
   <script>
     document.getElementById("telegramForm").addEventListener("submit", function (e) {
       e.preventDefault();
